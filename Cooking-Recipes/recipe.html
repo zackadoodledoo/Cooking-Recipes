@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Recipe Detail — Family Recipe Book</title>
+  <link rel="stylesheet" href="styles/style.css" />
+</head>
+<body>
+  <header>
+    <h1 class="logo">Family Recipe Book</h1>
+    <div class="hamburger" onclick="toggleMenu()">
+      <div></div><div></div><div></div>
+    </div>
+    <nav id="navMenu">
+      <a href="index.html">Home</a>
+      <a href="recipes.html">Recipes</a>
+      <a href="add-recipe.html">Add Recipe</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page">
+      <div id="recipe-content" class="recipe-card">Loading recipe…</div>
+    </section>
+  </main>
+
+  <footer><p>&copy; 2025 Family Recipe Book</p></footer>
+
+  <script type="module">
+    import { fetch as fetchPoly } from 'https://unpkg.com/whatwg-fetch?module';
+    // Use local fetch (browser provides it) — proceed:
+    import { default as nothing } from './js/recipes.js'; // dummy import so module loader is happy in some setups
+
+    async function fetchJSON(url){
+      const r = await fetch(url);
+      if (!r.ok) throw new Error('Fetch error');
+      return r.json();
+    }
+
+    (async function(){
+      const params = new URLSearchParams(location.search);
+      const id = Number(params.get('id'));
+      const container = document.getElementById('recipe-content');
+      if (!id) {
+        container.innerHTML = '<p>No recipe id provided in URL.</p>';
+        return;
+      }
+      try {
+        const data = await fetchJSON('data/recipes.json');
+        const recipe = data.find(x => x.id === id);
+        if (!recipe) {
+          container.innerHTML = '<p>Recipe not found.</p>';
+          return;
+        }
+        container.innerHTML = `
+          <div class="card-image"><img src="${recipe.image}" alt="${recipe.title}"></div>
+          <h2>${recipe.title}</h2>
+          <p class="muted">${recipe.category || ''}</p>
+          <h3>Ingredients</h3>
+          <ul>${(recipe.ingredients||[]).map(i=>`<li>${i}</li>`).join('')}</ul>
+          <h3>Instructions</h3>
+          <ol>${(recipe.instructions||[]).map(s=>`<li>${s}</li>`).join('')}</ol>
+          <p><strong>Notes:</strong> ${recipe.notes || ''}</p>
+          <div class="card-actions">
+            <button onclick="window.print()" class="small-btn">Print</button>
+            <a href="recipes.html" class="small-btn">Back</a>
+          </div>
+        `;
+      } catch (err) {
+        container.innerHTML = '<p>Failed to load recipe data.</p>';
+        console.error(err);
+      }
+    })();
+    function toggleMenu(){ document.getElementById('navMenu').classList.toggle('active'); }
+  </script>
+</body>
+</html>

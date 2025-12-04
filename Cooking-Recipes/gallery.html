@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Gallery — Family Recipe Book</title>
+  <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="styles/gallery.css">
+</head>
+<body>
+
+<header>
+  <h1 class="logo">Family Recipe Book</h1>
+  <div class="hamburger" onclick="toggleMenu()"><div></div><div></div><div></div></div>
+  <nav id="navMenu">
+    <a href="index.html">Home</a>
+    <a href="recipes.html">Recipes</a>
+    <a href="add-recipe.html">Add Recipe</a>
+    <a href="gallery.html" class="active">Gallery</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<main>
+  <section class="gallery">
+    <h2>Cooking Memories</h2>
+    <div class="slider" id="memSlider" aria-roledescription="carousel">
+      <button class="prev" aria-label="Previous">&#10094;</button>
+      <div class="slides" tabindex="0">
+        <img src="images/image 1 family cooking.webp" alt="Family cooking together">
+        <img src="images/image family cooking 3.jpg" alt="Grandma baking">
+        <img src="images/image family cooking 5.jpg" alt="Family cooking 5">
+        <img src="images/image family cooking 9.jpg" alt="Family cooking 7">
+        <img src="images/image family cooking 2.jpg" alt="Family cooking 4">
+        <img src="images/image family cooking 4.jpg" alt="Family cooking 6">
+        <img src="images/image family cooking 6.jpg" alt="Family cooking 8">
+        <img src="images/image family cooking 7.jpg" alt="Family cooking 9">
+        <img src="images/image family cooking 8.jpg" alt="Family cooking 10">
+      </div>
+      <button class="next" aria-label="Next">&#10095;</button>
+    </div>
+  </section>
+</main>
+
+<footer><p>&copy; 2025 Family Recipe Book — Sinclair</p></footer>
+
+<script>
+  // Hamburger toggle
+  function toggleMenu() {
+    document.getElementById('navMenu').classList.toggle('active');
+  }
+
+  // Carousel JS
+  const slider = document.querySelector('.slides');
+  const slides = document.querySelectorAll('.slides img');
+  const prev = document.querySelector('.prev');
+  const next = document.querySelector('.next');
+  let currentIndex = 0;
+
+  function showSlide(index) {
+    if(index < 0) currentIndex = slides.length - 1;
+    else if(index >= slides.length) currentIndex = 0;
+    else currentIndex = index;
+    slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+  }
+
+  prev.addEventListener('click', () => showSlide(currentIndex - 1));
+  next.addEventListener('click', () => showSlide(currentIndex + 1));
+
+  // Optional: auto-play every 5 seconds
+  // setInterval(() => showSlide(currentIndex + 1), 5000);
+</script>
+
+</body>
+</html>

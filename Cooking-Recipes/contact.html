@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us • Family Recipe Book</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body>
+
+<header>
+    <h1 class="logo">Family Recipe Book</h1>
+
+    <div class="hamburger" onclick="toggleMenu()">
+        <div></div><div></div><div></div>
+    </div>
+
+    <nav id="navMenu">
+        <a href="index.html">Home</a>
+        <a href="recipes.html">Recipes</a>
+        <a href="add-recipe.html">Add Recipe</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="about.html">About</a>
+        <a href="contact.html" class="active">Contact</a>
+    </nav>
+</header>
+
+<section class="purpose">
+    <h2>Contact Us</h2>
+    <p>
+        Have a new recipe to suggest? Want to share a memory?  
+        Send us a message — we would love to hear from you!
+    </p>
+    <img src="images/image family cooking 4.jpg" alt="family cooking together and happy" class="purpose"></a>
+</section>
+
+<section>
+    <form id="contactForm">
+        <label for="name">Name</label>
+        <input type="text" id="name" required>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" required>
+
+        <label for="message">Message</label>
+        <textarea id="message" rows="6" required></textarea>
+
+        <button type="submit">Send Message</button>
+    </form>
+</section>
+
+<footer>
+    <p>&copy; 2025 Family Recipe Book — Sinclair</p>
+</footer>
+
+<script>
+function toggleMenu() {
+    document.getElementById("navMenu").classList.toggle("active");
+}
+
+// Simple Local Storage Save
+document.getElementById("contactForm").addEventListener("submit", e => {
+    e.preventDefault();
+
+    const info = {
+        name: name.value,
+        email: email.value,
+        message: message.value,
+        date: new Date().toLocaleString()
+    };
+
+    localStorage.setItem("contactMessage", JSON.stringify(info));
+    alert("Your message has been saved!");
+    e.target.reset();
+});
+</script>
+
+</body>
+</html>

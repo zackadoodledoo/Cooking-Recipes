@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home • Family Recipe Book</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body>
+
+<header>
+    <h1 class="logo">Family Recipe Book</h1>
+
+    <div class="hamburger" onclick="toggleMenu()">
+        <div></div><div></div><div></div>
+    </div>
+
+    <nav id="navMenu">
+        <a href="index.html" class="active">Home</a>
+        <a href="recipes.html">Recipes</a>
+        <a href="add-recipe.html">Add Recipe</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <div class="hero-text">
+        <h2>Welcome to Our Family Recipe Book</h2>
+        <p>Discover cherished family recipes and preserve memories through food that has been passed down for generations.</p>
+        <a href="recipes.html" class="btn">Browse Recipes</a>
+    </div>
+    <img src="https://i.ibb.co/4nd554gk/image-1-family-cooking.webp" alt="Family cooking together" class="hero-img"></a>
+</section>
+
+<section class="purpose">
+    <h2>Our Mission</h2>
+    <p>We created this Family Recipe Book to capture the flavors and traditions that make our family gatherings special. Each recipe tells a story, preserving our culinary heritage for the next generation.</p>
+    <img src="https://i.ibb.co/SDBK387w/image-family-cooking-5.jpg" alt="image-family-cooking-5" border="0" class="purpose"></a>
+</section>
+
+<section class="features">
+    <div class="feature-card fade-in">
+        <h3>Family Focus</h3>
+        <p>Recipes that bring our family together, from casual weeknight dinners to holiday feasts.</p>
+    </div>
+    <div class="feature-card fade-in">
+        <h3>Preserved Traditions</h3>
+        <p>Each dish carries a story and a memory, carefully documented for everyone to enjoy.</p>
+    </div>
+    <div class="feature-card fade-in">
+        <h3>Easy to Follow</h3>
+        <p>Step-by-step instructions and ingredient lists make cooking these recipes simple for anyone.</p>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2025 Family Recipe Book — Sinclair</p>
+</footer>
+
+<script>
+function toggleMenu() {
+    document.getElementById("navMenu").classList.toggle("active");
+}
+</script>
+
+</body>
+</html>

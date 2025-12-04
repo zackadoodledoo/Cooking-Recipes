@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "title": "Grandma's Chocolate Cake",
+    "image": "images/image family cooking 6.jpg",
+    "description": "Classic, moist chocolate cake with her secret frosting.",
+    "category": "Dessert",
+    "ingredients": ["2 cups sugar","1.5 cups flour","1/2 cup cocoa powder","3 eggs"],
+    "instructions": ["Preheat oven to 350°F.","Mix ingredients.","Bake 35 minutes."],
+    "notes": "Add a pinch of cinnamon for warmth."
+  },
+  {
+    "id": 2,
+    "title": "Mom's Spaghetti",
+    "image": "images/image family cooking 7.jpg",
+    "description": "Comforting spaghetti with slow-simmered sauce.",
+    "category": "Dinner",
+    "ingredients": ["1 lb spaghetti","1 jar tomato sauce","1 onion","2 cloves garlic","1 lb ground beef"],
+    "instructions": ["Brown beef with onion & garlic.","Add sauce and simmer.","Cook pasta and serve."],
+    "notes": "Simmer longer for deeper flavor."
+  },
+  {
+    "id": 3,
+    "title": "Uncle Bob's BBQ Ribs",
+    "image": "images/image family cooking 8.jpg",
+    "description": "Tender ribs brushed with smoky-sweet sauce.",
+    "category": "BBQ",
+    "ingredients": ["2 racks pork ribs","BBQ sauce","brown sugar","garlic seasoning"],
+    "instructions": ["Rub ribs with seasoning.","Slow-cook 3 hours.","Grill & baste with sauce."],
+    "notes": "Serve at family reunions."
+  },
+  {
+    "id": 4,
+    "title": "Grandma's Apple Pie",
+    "image": "images/image family cooking 9.jpg",
+    "description": "Flaky crust filled with spiced apples.",
+    "category": "Dessert",
+    "ingredients": ["6 apples","1 cup sugar","2 tbsp cinnamon","pie crust"],
+    "instructions": ["Preheat oven to 375°F.","Fill crust with apple mix.","Bake 50 minutes."],
+    "notes": "Serve warm with vanilla ice cream."
+  }
+]

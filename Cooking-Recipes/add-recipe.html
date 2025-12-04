@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Add Recipe — Family Recipe Book</title>
+  <link rel="stylesheet" href="styles/style.css" />
+</head>
+<body>
+  <header>
+    <h1 class="logo">Family Recipe Book</h1>
+    <div class="hamburger" onclick="toggleMenu()">
+      <div></div><div></div><div></div>
+    </div>
+    <nav id="navMenu">
+      <a href="index.html">Home</a>
+      <a href="recipes.html">Recipes</a>
+      <a href="add-recipe.html" class="active">Add Recipe</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page">
+        <img src="images/image family cooking 3.jpg" alt="family cooking" class="page">
+      <h2>Submit a Recipe</h2>
+      <form id="recipe-form">
+        <label>Title</label>
+        <input id="title" required>
+
+        <label>Short description</label>
+        <input id="description">
+
+        <label>Image URL</label>
+        <input id="image" placeholder="images/example.jpg">
+
+        <label>Category</label>
+        <input id="category">
+
+        <label>Ingredients (one per line)</label>
+        <textarea id="ingredients" rows="5"></textarea>
+
+        <label>Instructions (one step per line)</label>
+        <textarea id="instructions" rows="7"></textarea>
+
+        <label>Notes</label>
+        <textarea id="notes" rows="3"></textarea>
+
+        <button type="submit">Submit (local)</button>
+        <p id="msg" role="status" style="margin-top:.6rem;"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer><p>&copy; 2025 Family Recipe Book</p></footer>
+
+  <script>
+    function toggleMenu(){ document.getElementById('navMenu').classList.toggle('active'); }
+
+    // Save new recipe to localStorage 'user_recipes'
+    document.getElementById('recipe-form').addEventListener('submit', async function(e){
+      e.preventDefault();
+      const title = document.getElementById('title').value.trim();
+      if (!title) return alert('Please enter a title');
+      const obj = {
+        id: Date.now(),
+        title,
+        description: document.getElementById('description').value.trim(),
+        image: document.getElementById('image').value.trim() || 'images/placeholder.jpg',
+        category: document.getElementById('category').value.trim(),
+        ingredients: document.getElementById('ingredients').value.split(/\r?\n/).map(s=>s.trim()).filter(Boolean),
+        instructions: document.getElementById('instructions').value.split(/\r?\n/).map(s=>s.trim()).filter(Boolean),
+        notes: document.getElementById('notes').value.trim()
+      };
+      const key = 'user_recipes';
+      const arr = JSON.parse(localStorage.getItem(key) || '[]');
+      arr.push(obj);
+      localStorage.setItem(key, JSON.stringify(arr));
+      document.getElementById('msg').textContent = 'Recipe saved locally. To see it on the Recipes page, click "Load user recipes".';
+      this.reset();
+    });
+  </script>
+</body>
+</html>

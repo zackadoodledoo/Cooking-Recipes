@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us • Family Recipe Book</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body>
+
+<header>
+    <h1 class="logo">Family Recipe Book</h1>
+
+    <div class="hamburger" onclick="toggleMenu()">
+        <div></div><div></div><div></div>
+    </div>
+
+    <nav id="navMenu">
+        <a href="index.html">Home</a>
+        <a href="recipes.html">Recipes</a>
+        <a href="add-recipe.html">Add Recipe</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="about.html" class="active">About</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <div class="hero-text">
+        <h2>Our Family Story</h2>
+        <p>Every recipe holds a memory — and we’re preserving those memories for generations to come.</p>
+    </div>
+    <a href="https://imgbb.com/"><img src="https://i.ibb.co/1tfvg9Rt/image-family-cooking-7.jpg" alt="image-family-cooking-7" border="0" class="hero-img"></a>
+</section>
+
+<section class="purpose">
+    <h2>Why This Website Exists</h2>
+    <p>
+        Our Family Recipe Book was created to capture traditions, flavors, and stories passed down through the years.
+        These recipes reflect our heritage, our celebrations, and the simple meals we’ve shared at the kitchen table.
+    </p>
+</section>
+
+<section class="features">
+    <div class="feature-card fade-in">
+        <h3>Our Mission</h3>
+        <p>
+            To preserve cherished recipes and make them available to the next generation in a beautiful,
+            organized, and interactive way.
+        </p>
+    </div>
+
+    <div class="feature-card fade-in">
+        <h3>Family First</h3>
+        <p>
+            This project is built around connection, tradition, and the joy of cooking together.
+        </p>
+    </div>
+
+    <div class="feature-card fade-in">
+        <h3>Inspired By Love</h3>
+        <p>
+            Many recipes here were created by parents, grandparents, and loved ones who brought warmth to our home.
+        </p>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2025 Family Recipe Book — Sinclair</p>
+</footer>
+
+<script>
+function toggleMenu() {
+    document.getElementById("navMenu").classList.toggle("active");
+}
+</script>
+
+</body>
+</html>
